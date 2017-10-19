@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[Arch更新后网易云音乐无法启动解决方法]]></title>
+      <url>/2017/10/13/music163/</url>
+      <content type="html"><![CDATA[<p>不得不说ArchLinx的更新策略确实有些激进，<br>滚动更新后就出了一堆问题，其中就包括网易云音乐</p>
+<pre><code class="bash">$ netease-cloud-music
+../../sandbox/linux/seccomp-bpf-helpers/sigsys_handlers.cc:**CRASHING**:seccomp-bpf failure in syscall 0281
+Received signal 11 SEGV_MAPERR 000008003119
+#0 0x7f85cc25eaeb &lt;unknown&gt;
+#1 0x7f85c79e9da0 &lt;unknown&gt;
+#2 0x7f85cebb9b73 &lt;unknown&gt;
+#3 0x7f85cebb8b0b &lt;unknown&gt;
+#4 0x7f85c79e9da0 &lt;unknown&gt;
+#5 0x7f85c77173b6 __GI_epoll_pwait
+#6 0x7f85cc2d4728 &lt;unknown&gt;
+#7 0x7f85cc2d232e &lt;unknown&gt;
+#8 0x7f85cc256f9e &lt;unknown&gt;
+#9 0x7f85cc28aee0 &lt;unknown&gt;
+#10 0x7f85cc27936a &lt;unknown&gt;
+#11 0x7f85cc2a9de8 &lt;unknown&gt;
+#12 0x7f85cc2a679d &lt;unknown&gt;
+#13 0x7f85c79df08a start_thread
+#14 0x7f85c771724f __GI___clone
+  r8: 0000000000000002  r9: 0000000000000008 r10: 0000000000000000 r11: 0000000000000246
+ r12: 0000000000000000 r13: 00007f85cf48e2e9 r14: 0000000000003119 r15: 00007f85b78c22e8
+  di: 0000000000000002  si: 00007f85cf48e2e8  bp: 0000000000000119  bx: 0000000000000000
+  dx: 0000000000000001  ax: 0000000000003000  cx: 0000000008003119  sp: 00007f85b78c22d0
+  ip: 00007f85cebb9b73 efl: 0000000000010202 cgf: 002b000000000033 erf: 0000000000000006
+ trp: 000000000000000e msk: 0000000000000000 cr2: 0000000008003119
+[end of stack trace]
+</code></pre>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a><strong>解决方法</strong></h2><h3 id="shell启动"><a href="#shell启动" class="headerlink" title="shell启动"></a><strong>shell启动</strong></h3><p><code>netease-cloud-music –no-sandbox</code></p>
+<h3 id="启动图标"><a href="#启动图标" class="headerlink" title="启动图标"></a><strong>启动图标</strong></h3><p>修改<code>/usr/share/applications/netease-cloud-music.desktop</code></p>
+<pre><code>将：
+Exec=netease-cloud-music %U
+替换为
+Exec=netease-cloud-music --no-sandbox %U
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><strong>参考</strong></h2><p><a href="https://aur.archlinux.org/packages/netease-cloud-music/" target="_blank" rel="external">netease-cloud-music  AUR</a><br><a href="http://blog.csdn.net/jsu_9207/article/details/78162113/" target="_blank" rel="external">ubuntu17.10 网易云音乐无法启动</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用PL2303 串口升级模块（USB转TTL）连接树莓派]]></title>
+      <url>/2017/09/17/ttl/</url>
+      <content type="html"><![CDATA[<p>如果你有一台没有显示器的树莓派，这个是一个可选的连接方法。</p>
+<p><img src="/images/ttl/usb-to-ttl-3.jpg" alt="图片来自网络，侵删"></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h2><h3 id="开启Serial"><a href="#开启Serial" class="headerlink" title="开启Serial"></a><strong>开启Serial</strong></h3><p>新版的Raspbian系统默认关闭了Serial，直接连接会出现没有响应。。。<br><img src="/images/ttl/我.jpg" alt="图片来自网络，侵删"><br>嗯，为了避免这种问题，你需要用其他方式连接树莓派，比如网线，Wlan，显示器，吧啦吧啦。。。<br>连接后<br>使用sudo raspi-config命令将Serial设置为enable<br><img src="/images/ttl/ops1.jpg" alt=""><br><img src="/images/ttl/ops2.jpg" alt=""></p>
+<h3 id="连接线的配置"><a href="#连接线的配置" class="headerlink" title="连接线的配置"></a><strong>连接线的配置</strong></h3><p>我使用的是WIN10系统，连接Pl2303的时候系统会自动安装驱动。<br>设备管理器哪里可能会出现黄色感叹号，需要你下载旧版本的驱动程序，具体可以参考这个文章<br><a href="http://jingyan.baidu.com/article/c85b7a646f1db5003bac95be.html" target="_blank" rel="external">WIN10下如何解决PL2303驱动不可用</a></p>
+<h3 id="如何连接"><a href="#如何连接" class="headerlink" title="如何连接"></a><strong>如何连接</strong></h3><p><img src="/images/ttl/gpio.jpg" alt=""><br>建议连接前仔细看一下转接线的说明</p>
+<p>一般为：<br>白色线为接收（RXD），接Raspberry Pi 的传送（TXD）<br>绿色线为传送（TXD），接Raspberry Pi 的接收（RXD）</p>
+<h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a><strong>Start</strong></h2><p>到设备管理器查看COM口<br><img src="/images/ttl/a3.jpg" alt=""><br>这里需要一个软件，putty<br>连接类型：串口<br>串行口:看上图<br>速度:115200<br><img src="/images/ttl/a4.jpg" alt=""><br>连接后按几下回车，出现登录界面<br>输入账户密码就OK了<br><img src="/images/ttl/shell.jpg" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><strong>参考</strong></h2><p><a href="http://yehnan.blogspot.com/2013/09/raspberry-pi.html" target="_blank" rel="external">Raspberry Pi：透過序列埠登入系統</a><br><a href="https://blog.gtwang.org/iot/pl2303-hxd-usb-ttl-raspberry-pi-b-plus/" target="_blank" rel="external">使用PL2303 HXD USB 转TTL 传输线，从序列埠登入到Raspberry Pi B+</a><br><a href="http://blog.csdn.net/xdw1985829/article/details/39580401/" target="_blank" rel="external">树莓派开发系列教程9——树莓派GPIO控制</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> RaspberryPi </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Vbox常见问题]]></title>
+      <url>/2017/09/07/Vbox/</url>
+      <content type="html"><![CDATA[<h2 id="vbox移动虚拟硬盘文件后无法加载问题"><a href="#vbox移动虚拟硬盘文件后无法加载问题" class="headerlink" title="vbox移动虚拟硬盘文件后无法加载问题"></a><strong>vbox移动虚拟硬盘文件后无法加载问题</strong></h2><pre><code>cd C:\Program Files\Oracle\VirtualBox
+vboxmanage internalcommands sethduuid &quot;虚拟硬盘文件路径&quot;
+</code></pre><h2 id="Linux添加虚拟文件夹"><a href="#Linux添加虚拟文件夹" class="headerlink" title="Linux添加虚拟文件夹"></a><strong>Linux添加虚拟文件夹</strong></h2><p><img src="/images/vbox/1.jpg" alt=""></p>
+<pre><code>mount -t vboxsf 共享文件夹名 挂载路径
+</code></pre>]]></content>
+      
+        
+        <tags>
+            
+            <tag> VM </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Raspbian修改软件源]]></title>
+      <url>/2017/09/05/Raspbian%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E6%BA%90/</url>
+      <content type="html"><![CDATA[<p>这里选择<a href="https://mirrors.ustc.edu.cn" target="_blank" rel="external">USTC</a>的open source software mirror源。<br>archive.raspberrypi.org在国内下载速度跟2G网速差不多。。。</p>
+<h2 id="backup"><a href="#backup" class="headerlink" title="backup"></a><strong>backup</strong></h2><p>备份一下也不是什么坏事，就算玩坏也好恢复</p>
+<pre><code class="bash">cp /etc/apt/sources.list /etc/apt/sources.list.bak
+cp /etc/apt/sources.d/raspi.list /etc/apt/sources.d/raspi.list.bak
+</code></pre>
+<h2 id="source-list"><a href="#source-list" class="headerlink" title="source.list"></a><strong>source.list</strong></h2><pre><code class="bash">vi /etc/apt/sources.list
+</code></pre>
+<pre><code>#deb http://mirrordirector.raspbian.org/raspbian/ jessie main contrib non-free rpi
+# Uncomment line below then &#39;apt-get update&#39; to enable &#39;apt-get source&#39;
+#deb-src http://archive.raspbian.org/raspbian/ jessie main contrib non-free rpi
+
+deb https://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main non-free contrib
+deb-src https://mirrors.ustc.edu.cn/raspbian/raspbian/ jessie main non-free contrib
+</code></pre><p>注释掉默认的源，将USTC的镜像源添加在下面</p>
+<h2 id="raspi-list"><a href="#raspi-list" class="headerlink" title="raspi.list"></a><strong>raspi.list</strong></h2><pre><code class="bash">vi /etc/apt/sources.d/raspi.list
+</code></pre>
+<pre><code>#deb http://archive.raspberrypi.org/debian/ jessie main ui
+# Uncomment line below then &#39;apt-get update&#39; to enable &#39;apt-get source&#39;
+#deb-src http://archive.raspberrypi.org/debian/ jessie main ui
+
+deb https://mirrors.ustc.edu.cn/archive.raspberrypi.org/ jessie main ui
+</code></pre><p>同上</p>
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a><strong>update</strong></h2><p>复制时注意版本代号，不然会安装不了软件哦。<br>最后用<code>apt update</code>更新下cache，没有报错就ok了<br><img src="/images/rpiapt/npn.jpg" alt=""></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><strong>参考</strong></h2><p><a href="https://xusiwei.github.io/post/2016/raspberry-pi-use-ustc-mirror/" target="_blank" rel="external">Raspberry Pi 使用科大镜像源</a><br><a href="https://blog.viosey.com/2017/01/20/Raspi-source-wifi-static-ip/index.html" target="_blank" rel="external">树莓派初始化配置：更换源 &amp; 连接 WiFi &amp; 静态 IP</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[树莓派3无显示器连接和配置]]></title>
+      <url>/2017/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE3%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>找技术类文章还是Google好用，百度翻了大半天没弄明白</p>
+<p>如何在没有显示器和路由的情况下安装和连接树莓派系统</p>
+<h2 id="准备物品"><a href="#准备物品" class="headerlink" title="准备物品"></a><strong>准备物品</strong></h2><ul>
+<li>树莓派</li>
+<li>烧录好RASPBIAN系统的内存卡（推荐class10以上）</li>
+<li>读卡器</li>
+<li>数据线（用于供电）</li>
+<li>网线</li>
+<li>双网卡笔记本电脑</li>
+</ul>
+<h2 id="启动前的的配置"><a href="#启动前的的配置" class="headerlink" title="启动前的的配置"></a><strong>启动前的的配置</strong></h2><h3 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a><strong>修改文件</strong></h3><h4 id="固定IP"><a href="#固定IP" class="headerlink" title="固定IP"></a>固定IP</h4><p>使用读卡器读取SD卡，打开boot分区<br>修改cmdline.txt文件，在最末尾加上：</p>
+<pre><code>ip=192.168.137.2
+</code></pre><p>这样树莓派在启动的时候就会在给网口分配一个ip</p>
+<h4 id="开启SSH功能"><a href="#开启SSH功能" class="headerlink" title="开启SSH功能"></a>开启SSH功能</h4><p>Raspbian在16年11月更新的时候默认禁用了SSH<br>但是当系统启动的时候，它会检查是否存在/boot/ssh这个文件，如果存在的话则开启ssh，并且删除该文件。<br>使用powershell创建ssh文件</p>
+<pre><code class="bash">new-item ssh -type file
+</code></pre>
+<h3 id="PC端配置"><a href="#PC端配置" class="headerlink" title="PC端配置"></a><strong>PC端配置</strong></h3><p>将WIFI网络共享到笔记本连接到树莓派的网口<br>一般会分配一个192.168.137.1的ip<br><img src="/images/rpic/1.JPG" alt=""><br><img src="/images/rpic/2.JPG" alt=""></p>
+<h2 id="连接树莓派"><a href="#连接树莓派" class="headerlink" title="连接树莓派"></a><strong>连接树莓派</strong></h2><p>将树莓派和你的电脑连接<br>正常的话，树莓派的网口状态灯将会亮起<br>打开电脑CMD使用命令查看ip</p>
+<pre><code class="cmd">arp -a
+</code></pre>
+<p><img src="/images/rpic/3.JPG" alt=""><br>这个是树莓派连接后，修改配置自动获取的ip<br>按照上面的步骤，ip地址是192.168.137.2，类型为动态<br>然后ping一下，如果正常就说明ip获取成功</p>
+<p>接下来使用终端软件进行连接<br>默认用户名pi密码raspberry<br><img src="/images/rpic/4.JPG" alt=""><br><em>请无视上图的IP地址</em></p>
+<h2 id="配置图形界面"><a href="#配置图形界面" class="headerlink" title="配置图形界面"></a><strong>配置图形界面</strong></h2><p>最新的Raspbian Jessie with PIXEL已经集成RealVNC<br>只需要在<code>raspi-config</code>中enable即可<br><img src="/images/rpic/5.JPG" alt=""><br><img src="/images/rpic/6.JPG" alt=""><br>使用VNC连接<br><img src="/images/rpic/7.JPG" alt=""><br><img src="/images/rpic/8.JPG" alt=""><br>enjoy</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><strong>参考文章</strong></h2><p><a href="https://www.realvnc.com/en/connect/docs/raspberry-pi.html" target="_blank" rel="external">VNC Connect and Raspberry Pi</a><br><a href="https://xusiwei.github.io/post/2016/raspberry-pi-headless-setup/" target="_blank" rel="external">Raspberry Pi 3 无显示器 安装指南</a><br><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="external">raspbian镜像</a><br><a href="https://mark1998.com/raspi-3-ssh-connection-refused/" target="_blank" rel="external">树莓派（raspberry pi）3 无显示器盲装 ssh连接提示“connection refused”解决</a><br><a href="https://www.zhihu.com/question/20764621" target="_blank" rel="external">没有显示器可以使用树莓派么，初次安装过程中呢？</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> RaspberryPi </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Bathtub Mermaid]]></title>
+      <url>/2017/08/21/BathtubMermaid/</url>
+      <content type="html"><![CDATA[<div style="width:100%;position:relative;padding-bottom:56.25%;height:0;" data-ratio="16:9"><br><video style="position: absolute;top:0;left: 0;width: 100%;height: 100%" src="/videos/7120602-1.mp4" controls="controls"></video><br></div>
+
+<h2 id="Mili-Bathtub-Mermaid"><a href="#Mili-Bathtub-Mermaid" class="headerlink" title="Mili - Bathtub Mermaid"></a>Mili - Bathtub Mermaid</h2><p>.<br>Rise and fall<br>潮起潮落<br>Silver moon tide erased my foot prints<br>银色的月光抹去我的足迹<br>Then I picked up broken scales<br>我拾起破碎的鳞片<br>Stuck them to my tail<br>将它们点缀在我的尾巴上<br>.<br>Ah<br>啊<br>If love truly makes you blind<br>如果爱会使人盲目<br>Then I guess<br>那么<br>There is no need<br>我看不见也无所谓<br>There is no need to see<br>看不见也无所谓<br>I ‘ll trade my eyes<br>把我的眼睛交换给你<br>So you can see for me<br>你来替我观望<br>.<br>Lulala lulalila<br>噜啦啦噜啦哩啦<br>Stay with me<br>只要和我在一起<br>You will never be sad<br>你永远也不会难过<br>I<br>我<br>I will embrace<br>我要拥抱<br>Embrace your bubbles your fluids<br>拥抱你的泡沫你的爱液<br>And keep you warm<br>让你取暖<br>Then<br>然后<br>I will squeeze out<br>我要拧出<br>Squeeze out your germs your spore your viruses<br>拧出你的细菌你的孢子你的病毒<br>I<br>我<br>I will embrace<br>我要拥抱<br>Embrace your membranes your bones<br>拥抱你的黏膜你的骨肉<br>And keep you cool<br>让你乘凉<br>Then<br>然后<br>I will squeeze out<br>我要拧出<br>Squeeze out your evil your grim and your woe<br>拧出你的邪恶你的不幸你的挫折<br>Transform myself<br>仅此一回<br>Once and for all<br>我将重生<br>Sink into the tub<br>沉入浴缸之底<br>.<br>Reborn<br>脱胎<br>Reform<br>换骨<br>Twist my legs to one and mind to none<br>我的两腿绞成一条　我的大脑绞成零<br>Tell me tell me<br>告诉我　告诉我<br>What do you see<br>你能看见什么<br>In the mirror that’s covered in chalky steam<br>在那满是蒸汽的镜子里<br>Touch me touch me<br>摸摸我　摸摸我<br>Kiss me to sleep<br>让我在你的亲吻中入睡<br>Cut me open and give me gills<br>将我切开　缝上鱼鳃<br>So I can breathe<br>不然我无法呼吸<br>.<br>With tweezers and nippers<br>拿出镊子与钳子<br>Trim off my fins<br>割掉我的鳍<br>And forever I will be yours<br>这样我将永远被你所有<br>I won’t fight or make you cry<br>我绝不会与你争吵　也不会让你哭泣<br>Whatever you need<br>无论何时<br>Whenever you need<br>何地<br>I’ll be by your side<br>我都会在你身边<br>.<br>And then I gave you my eyes<br>于是我把眼睛送给了你<br>To see all the colours<br>为了能够让你看见所有的颜色<br>And then I gave you my ears<br>于是我又把耳朵送给了你<br>To hear all the sirens<br>为了能够让你听见海妖们的歌声<br>And then I gave you my heart<br>然后我把心脏送给了你<br>To fill in the emptiness in your chest<br>为了能够让你填满你胸口中的空虚<br>And then I gave you my brain<br>然后我又把大脑送给了你<br>So that you can learn to love<br>为了让你学会如何去爱<br>.<br>Tell me tell me<br>告诉我　告诉我<br>What do you see<br>你能看见些什么<br>In the water that’s clinging onto my skin<br>在那依偎于我肌肤的水珠里<br>Cut me cut me<br>切开我　切开我<br>Please make it deep<br>留下深深的刀痕<br>If I’ m covered in scars<br>如果我满身是伤<br>Will you look at me<br>你可能终于会看我一眼<br>Kiss me kiss me<br>亲亲我　亲亲我<br>Don’t leave me be<br>不要离我而去<br>I’ m a bathtub mermaid<br>我只不过是浴缸中的人鱼<br>I cannot swim but only sing<br>只能唱歌但不会游泳<br>Just pull the plug<br>拔掉浴缸的栓<br>Flush down all our memories<br>将我们的记忆<br>Into the sea<br>冲入海底</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> video </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[wificrack]]></title>
+      <url>/2017/08/04/wificrack/</url>
+      <content type="html"><![CDATA[<p>使用Aircrack-ng和Reaver进行WIFI密码破解</p>
+<p><em>仅供用于安全测试，请不要用来蹭网或者搞破坏</em><br>话说蹭网还不如WIFiXX钥匙来得方便，只不过看不到密码罢了。。。</p>
+<h2 id="Aircrack-ng破解流程"><a href="#Aircrack-ng破解流程" class="headerlink" title="Aircrack-ng破解流程"></a><strong>Aircrack-ng破解流程</strong></h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h3><pre><code class="bash">sudo apt install aircrack-ng
+</code></pre>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a><strong>准备</strong></h3><p>Aircrack-ng是一个无线渗透工具包：</p>
+<ul>
+<li>Airodump-ng</li>
+<li>Aircrack-ng</li>
+<li>Aireplay-ng</li>
+<li>Airmon-ng</li>
+<li>……</li>
+</ul>
+<p>一些术语说明：</p>
+<ul>
+<li>AP(Access Point): 网络接入点，是一种连接无线或有线网络的设备。就是我们俗称的路由器。</li>
+<li>MAC(Media Access Control Address): 相当于网卡的身份证，MAC 地址本身是不能修改，但是可以通过伪造MAC 地址欺骗AP。</li>
+<li>WEP(Wireless Encryption Protocol): 无线加密协议。很早的一种加密协议，容易破解。</li>
+<li>WPA/WPA2(Wi-FiProtected Access): 基于WEP更安全的加密系统。</li>
+<li>Handshake:握手。我的理解相当于三次握手。</li>
+<li>IV(Initialization Vector)s:初始化向量。</li>
+</ul>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a><strong>信息收集</strong></h3><pre><code class="bash">ifconfig
+</code></pre>
+<p>查看网卡信息</p>
+<p>如果使用虚拟机默认无线网卡是wlan0<br>实体机就要好好辨别了<br>一定要保证它现在没有连接到任何wifi。wlan0里面没有分配ip地址什么的就说明现在不在连接中。</p>
+<pre><code class="bash">sudo airmon-ng start wlan0
+sudo airodump-ng wlan0
+</code></pre>
+<p>将网卡切换至监听模式<br>获取周围AP信息</p>
+<p>这里解释几个参数：</p>
+<ul>
+<li>BSSID(Basic Service SetIdentifier): AP 的MAC 地址。</li>
+<li>ESSID(The Extended Service Set Identifier): AP 的名称。</li>
+<li>PWR(Power): 信号强度。</li>
+<li>Beacons: AP发出的通告编号，每个接入点（AP）在最低速率（1M）时差不多每秒会发送10个左右的beacon，所以它们能在很远的地方就被发现。</li>
+<li><code>#Data:当前数据传输量。</code></li>
+<li><code>#/s:过去10秒钟内每秒捕获数据分组的数量。</code></li>
+<li>CH(Channel): AP 所在的频道。</li>
+<li>MB: AP 的最大传输速度。MB=11 =&gt; 802.11b，MB=22 =&gt; 802.11b+， MB&gt;22 =&gt; 802.11g。后面带.的表示短封包标头，处理速度快，更利于破解。</li>
+<li>ENC(Encryption): 使用的加密算法体系。</li>
+<li>CIPHER: 检测到的加密算法。#这个和ENC 的区别我确实不明白，有没有知道的朋友可以告诉我。</li>
+<li>AUTH(Authority): 认证方式。</li>
+<li>Elapsed: 用过的时间。</li>
+</ul>
+<h3 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a><strong>抓包</strong></h3><p>记录下你要破解的AP的MAC 地址(BSSID)，频道(CH)</p>
+<pre><code class="bash">sudo airodump-ng --ivs --bssid 地址(BSSID) –w 文件名 -c 频道(CH) wlan0
+</code></pre>
+<p>如果右上角多了一个WPA handshake，抓包成功。</p>
+<p>攻击加速破解<br>这里为了获得破解所需的WPA2握手验证的整个完整数据包，我们将会发送一种称之为“Deauth”的数据包来将已经连接至无线路由器的合法无线客户端强制断开，此时，客户端就会自动重新连接无线路由器，我们也就有机会捕获到包含WPA2握手验证的完整数据包了。<br>新开一个终端：</p>
+<pre><code class="bash">aireplay-ng -0 1 -a 地址BSSID -c 客户端MAC wlan0
+</code></pre>
+<p>-0 采用deauth攻击模式，后面跟上攻击次数，这里我设置为1，大家可以根据实际情况设置为10不等</p>
+<h3 id="破解"><a href="#破解" class="headerlink" title="破解"></a><strong>破解</strong></h3><pre><code class="bash">sudo aircrack-ng -w 字典.txt 刚才抓的包.ivs
+</code></pre>
+<p><img src="/images/keyfound.png" alt=""></p>
+<h2 id="Reaver破解"><a href="#Reaver破解" class="headerlink" title="Reaver破解"></a><strong>Reaver破解</strong></h2><p>与Aircrack-ng不同的是，Reaver不需要抓包和跑字典破解。<br><em>它利用了WiFi保护设置（WiFi Protected Setup - 下文中简称为WPS）的一个弱点，WPS是许多路由器上都有的一个功能，可以为用户提供简单的配置过程，它与设备中硬编码保存的一个PIN码绑定在一起。Reaver利用的就是PIN码的一个缺陷，最终的结果就是，只要有足够的时间，它就能破解WPA或WPA2的密码。</em></p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a><strong>安装</strong></h3><pre><code class="bash">sudo apt isntall reaver
+</code></pre>
+<h3 id="信息收集-1"><a href="#信息收集-1" class="headerlink" title="信息收集"></a><strong>信息收集</strong></h3><p>与上面的方法相同，当然reaver也有自己的命令，感兴趣可以问问谷歌。</p>
+<h3 id="破解-1"><a href="#破解-1" class="headerlink" title="破解"></a><strong>破解</strong></h3><pre><code class="bash">reaver -i wlan0 -b 地址(BSSID) -vv
+</code></pre>
+<p>然后就是漫长的等待了，但要保证AP信号稳定。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><strong>参考</strong></h2><p><a href="http://www.jianshu.com/p/fd16236057df" target="_blank" rel="external">使用Aircrack-ng进行wifi渗透</a><br><a href="http://www.jianshu.com/p/d4da13258f35" target="_blank" rel="external">使用 Aircrack-ng 破解 WEP 和 WPA/WPA2 加密的 Wi-Fi 密码</a><br><a href="http://www.jianshu.com/p/78755ac272bf" target="_blank" rel="external">学习aircrack-ng的过程（完）</a><br><a href="http://www.jianshu.com/p/5ef955bebde4" target="_blank" rel="external">使用Reaver破解Wi-Fi网络的WPA密码</a><br>字典：<br><a href="https://github.com/berzerk0/Probable-Wordlists" target="_blank" rel="external">Probable-Wordlists</a><br><a href="https://github.com/danielmiessler/SecLists" target="_blank" rel="external">SecLists</a></p>
+<hr>
+<p>最近过的挺颓废的。。。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=31234810&auto=0&height=66"></iframe>]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> hack </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Centos7快速搭建LAMP]]></title>
+      <url>/2017/06/15/lamp/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>LAMP是指一组通常一起使用来运行动态网站或者服务器的自由软件名称首字母缩写：<br>Linux，操作系统<br>Apache，网页服务器<br>MariaDB或MySQL，数据库管理系统（或者数据库服务器）<br>PHP、Perl或Python，脚本语言</p>
+</blockquote>
+<p>这里使用Centos7安装Apache+PHP+Mysql+PHPMyAdmin</p>
+<h2 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a><strong>安装Apache</strong></h2><pre><code class="bash">yum install httpd
+</code></pre>
+<p>Centos7默认安装Apache，可以直接启动。</p>
+<pre><code class="bash">systemctl start httpd      //启动apache
+systemctl enable httpd     //设置apache开机启动
+</code></pre>
+<h2 id="安装MariaDB"><a href="#安装MariaDB" class="headerlink" title="安装MariaDB"></a><strong>安装MariaDB</strong></h2><p>MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可。<br>MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h3><pre><code class="bash">yum install mariadb mariadb-server
+</code></pre>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a><strong>配置</strong></h3><pre><code class="bash">systemctl start mariadb     //启动MariaDB
+systemctl enable mariadb    //设置开机启动
+</code></pre>
+<p>设置root账户密码</p>
+<pre><code class="bash">mysql_secure_installation
+</code></pre>
+<blockquote>
+<p>Enter current password for root (enter for none):<br>Set root password? [Y/n]</p>
+</blockquote>
+<p>点击回车然后提示是否设置root账号密码，输入y<br>输入密码<br>重复输入<br>然后一路y就行了</p>
+<p>设置root密码后，重启MariaDB生效</p>
+<pre><code class="bash">systemctl restart mariadb.service
+</code></pre>
+<h2 id="安装PHP"><a href="#安装PHP" class="headerlink" title="安装PHP"></a><strong>安装PHP</strong></h2><pre><code class="bash">yum install php php-mysql php-gd libjpeg* php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-bcmath php-mhash
+</code></pre>
+<h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a><strong>测试环境</strong></h3><p>重启Apache服务器</p>
+<pre><code class="bash">systemctl restart httpd.service
+</code></pre>
+<p>测试PHP安装结果</p>
+<pre><code class="bash">vim /var/www/html/index.php
+</code></pre>
+<p>输入如下内容</p>
+<pre><code class="php">&lt;?php
+  phpinfo();
+?&gt;
+</code></pre>
+<p>使用浏览器访问测试。</p>
+<h2 id="安装phpmyadmin"><a href="#安装phpmyadmin" class="headerlink" title="安装phpmyadmin"></a><strong>安装phpmyadmin</strong></h2><pre><code class="bash">yum install phpmyadmin php-mcrypt
+</code></pre>
+<p>默认情况下，CentOS 7上的phpMyAdmin只允许从回环地址(127.0.0.1)访问。为了能远程连接，你需要改动它的配置。</p>
+<pre><code class="bash">vim /etc/httpd/conf.d/phpMyAdmin.conf
+</code></pre>
+<p>修改配置文件如下</p>
+<pre><code>&lt;Directory /usr/share/phpMyAdmin/&gt;
+   AddDefaultCharset UTF-8
+
+   &lt;IfModule mod_authz_core.c&gt;
+     # Apache 2.4
+     &lt;RequireAny&gt;
+      # Require ip 127.0.0.1  #注释掉
+      # Require ip ::1   #注释掉
+      Require all granted   #新添加
+     &lt;/RequireAny&gt;
+ &lt;/IfModule&gt;
+ &lt;IfModule !mod_authz_core.c&gt;
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from All
+     Allow from 127.0.0.1
+     Allow from ::1
+   &lt;/IfModule&gt;
+&lt;/Directory&gt;
+
+&lt;Directory /usr/share/phpMyAdmin/setup/&gt;
+   &lt;IfModule mod_authz_core.c&gt;
+     # Apache 2.4
+     &lt;RequireAny&gt;
+      #Require ip 127.0.0.1  #注释掉
+      #Require ip ::1   #注释掉
+      Require all granted   #新添加
+     &lt;/RequireAny&gt;
+   &lt;/IfModule&gt;
+   &lt;IfModule !mod_authz_core.c&gt;
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from All
+     Allow from 127.0.0.1
+     Allow from ::1
+   &lt;/IfModule&gt;
+&lt;/Directory&gt;
+</code></pre><p>重启Apache服务器</p>
+<pre><code class="bash">systemctl restart httpd
+</code></pre>
+<p>浏览器访问 <a href="http://服务器ip/phpmyadmin" target="_blank" rel="external">http://服务器ip/phpmyadmin</a><br><img src="/images/hma.jpg" alt="phpmyadmin登陆页面"><br>完成</p>
+<p>引用：<br><a href="http://www.jianshu.com/p/bc14ff0ab1c7" target="_blank" rel="external">Centos7安装配置Apache+PHP+Mysql+phpmyadmin</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ArchLinux安装笔记]]></title>
+      <url>/2017/05/16/ArchLinux%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<p>作为一个轻量级的linux发行版，Arch linux简洁快速，但对新手不太友好，没有图形化安装界面。<br>这里使用vbox安装UEFI方式启动。</p>
+<h2 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a><strong>安装前准备</strong></h2><h3 id="使用UEFI启动"><a href="#使用UEFI启动" class="headerlink" title="使用UEFI启动"></a><strong>使用UEFI启动</strong></h3><p><img src="/images/Uefi.jpg" alt="vbox"><br>将ISO镜像载入光驱，启动LiveCD<br><img src="/images/livecd.jpg" alt="vbox"></p>
+<h3 id="检查网络连接"><a href="#检查网络连接" class="headerlink" title="检查网络连接"></a><strong>检查网络连接</strong></h3><p> <code>ping www.baidu.com</code></p>
+<h3 id="时间同步"><a href="#时间同步" class="headerlink" title="时间同步"></a><strong>时间同步</strong></h3><p> <code>timedatectl set-ntp true</code></p>
+<p>可以用 <code>timedatectl status</code> 检查服务状态</p>
+<h3 id="硬盘分区"><a href="#硬盘分区" class="headerlink" title="硬盘分区"></a><strong>硬盘分区</strong></h3><p> <code>fdisk -l</code> 查看硬盘分区情况<br>使用fdisk工具将硬盘分为</p>
+<ul>
+<li>一个根分区</li>
+<li>EFI系统分区</li>
+<li>Swap交换分区</li>
+</ul>
+<h3 id="分区格式化以及挂载"><a href="#分区格式化以及挂载" class="headerlink" title="分区格式化以及挂载"></a><strong>分区格式化以及挂载</strong></h3><p>建立根分区(格式化为ext4文件系统)并挂载</p>
+<pre><code>mkfs.ext4 /dev/sda2
+mount /dev/sda2 /mnt
+</code></pre><p>建立EFI启动分区并挂载。<br>EFI系统分区是一个 FAT32 格式的物理分区,电脑启动时默认从/Boot/EFI查找.efi文件引导</p>
+<pre><code class="bash">mkfs.vfat /dev/sda1
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+</code></pre>
+<p>交换分区 创建和启用</p>
+<pre><code>mkswap /dev/sda3
+swapon /dev/sda3
+</code></pre><p><img src="/images/disk.jpg" alt="vbox"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong>安装</strong></h2><p>编辑<code>/etc/pacman.d/mirrorlist</code>选择您的首选镜像源。<br>如在文件的最顶端添加<br><code>Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch</code></p>
+<h3 id="基本系统安装"><a href="#基本系统安装" class="headerlink" title="基本系统安装"></a><strong>基本系统安装</strong></h3><pre><code>pacman -Syy
+pacstrap -i /mnt base base-devel
+</code></pre><p>然后等待下载安装完成。</p>
+<h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a><strong>系统配置</strong></h2><h3 id="Fstab"><a href="#Fstab" class="headerlink" title="Fstab"></a><strong>Fstab</strong></h3><p>文件<code>/etc/fstab</code>包含了静态文件系统信息，定义了存储设备和分区整合到整个系统的方式。mount 命令会读取这个文件，确定设备和分区的挂载选项。<br>建议检查一下<code>/mnt/etc/fstab</code>文件是否正确<br><code>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</code></p>
+<h3 id="Chroot"><a href="#Chroot" class="headerlink" title="Chroot"></a><strong>Chroot</strong></h3><p>Change root 到新安装的系统：<br>相当于进入这个刚安装的Arch系统。。。<br><code>arch-chroot /mnt</code></p>
+<h3 id="时区"><a href="#时区" class="headerlink" title="时区"></a><strong>时区</strong></h3><p>将时区设置为上海<br><code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code><br>时间同步<br><code>hwclock --systohc --utc</code></p>
+<h3 id="本地化"><a href="#本地化" class="headerlink" title="本地化"></a><strong>本地化</strong></h3><p><code>vim /etc/locale.gen</code><br>/etc/locale.gen是一个仅包含注释文档的文本文件。指定您需要的本地化类型，只需移除对应行前面的注释符号（＃）即可，建议选择帶UTF-8的项：</p>
+<pre><code>en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+zh_TW.UTF-8 UTF-8
+</code></pre><p>接着执行<code>locale-gen</code>以生成locale讯息：<br><code>locale-gen</code><br>创建 locale.conf 并生成您的本地化选项：(安装完成前不建议使用)<br><code>echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</code></p>
+<h3 id="主机名"><a href="#主机名" class="headerlink" title="主机名"></a><strong>主机名</strong></h3><p>将主机名添加到/etc/hostname文件<br><code>echo myhostname &gt; /etc/hostname</code><br>建议添加到/etc/hosts<br><code>vim /etc/hosts</code></p>
+<pre><code>127.0.0.1    localhost.localdomain    localhost
+::1        localhost.localdomain    localhost
+127.0.1.1    myhostname.localdomain    myhostname
+</code></pre><h3 id="开启DHCP服务"><a href="#开启DHCP服务" class="headerlink" title="开启DHCP服务"></a><strong>开启DHCP服务</strong></h3><p><code>systemctl enable dhcpcd.service</code></p>
+<h3 id="用户"><a href="#用户" class="headerlink" title="用户"></a><strong>用户</strong></h3><p>首先创建root密码<br><code>passwd</code></p>
+<p>创建一个普通用户，并将这个用户添加到wheel,storage,power用户组。<br><code>useradd -m -g users -G wheel,storage,power -s /bin/bash &lt;username&gt;</code><br>为这个用户设置一个密码<br><code>passwd 用户名</code></p>
+<p>安装sudo工具<br><code>pacman -S sudo</code><br>编辑/etc/sudoers文件<br>找到这一行。<br><code>%wheel ALL=(ALL) ALL</code><br>去年前面的#符号。保存文件。这表示允许wheel组的用户使用sudo来管理系统。</p>
+<h2 id="引导程序"><a href="#引导程序" class="headerlink" title="引导程序"></a><strong>引导程序</strong></h2><p>这里使用grub，通过UEFI的方式引导，还需要安装efibootmgr，如果同时还装有其他操作系统，还要安装os-prober：<br><code>pacman -S grub os-prober efibootmger</code><br>安装好之后，还需要将其安装到EFI分区之中，这里不需要指明具体是哪个分区，因此不用数字：</p>
+<p><code>grub-install --recheck /dev/sda</code></p>
+<p>如果提示error:cannot find EFI directory，说明找不到EFI文件夹的位置，还需要加上–efi-directory参数指明安装位置：</p>
+<p><code>grub-install --recheck /dev/sda --efi-directory=/boot</code><br>没有错误则说明安装成功。安装完毕之后还需要生成一个grub配置文件:<br><code>grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+<h2 id="退出并重启系统"><a href="#退出并重启系统" class="headerlink" title="退出并重启系统"></a><strong>退出并重启系统</strong></h2><pre><code>exit
+reboot
+</code></pre><p>arch系统开机前的配置基本完成了，接下来就可以推出chroot环境，重启系统。<br>重启前请弹出Iso镜像，或修改启动顺序。</p>
+<h2 id="安装图像界面"><a href="#安装图像界面" class="headerlink" title="安装图像界面"></a><strong>安装图像界面</strong></h2><h3 id="驱动程序"><a href="#驱动程序" class="headerlink" title="驱动程序"></a><strong>驱动程序</strong></h3><p>Virtualbox虚拟显卡和工具virtualbox-guest-utils：<br><code>sudo pacman -S virtualbox-guest-utils</code><br>VMware的显卡驱动<br><code>pacman -S xf86-video-vmware</code></p>
+<p>Intel GPU：<br><code>pacman -S xf86-video-intel</code><br>Nvidia GPU：<br><code>pacman -S nvidia nvidia-libgl</code><br>ATI/AMD：<br><code>pacman -S xf86-video-ati lib32-mesa-libgl</code><br>显卡驱动安装完成后建议重启系统再使用xorg</p>
+<p>如果使用无线网络的话，要安装这几个包，否则重启之后无法连接无线网络：<br><code># pacman -S iw wpa_supplicant dialog</code></p>
+<h3 id="Xorg和GNOME"><a href="#Xorg和GNOME" class="headerlink" title="Xorg和GNOME"></a><strong>Xorg和GNOME</strong></h3><p><code>pacman -S xorg</code><br>安装X.org三个测试组件:<br><code>sudo pacman -S xorg-twm xorg-xclock xterm</code><br>使用这个命令测试X.org是否可以正常工作:<br><code>startx</code><br><img src="https://www.linuxdashen.com/wp-content/uploads/2016/03/arch_arch-uefi-Running-Oracle-VM-VirtualBox_009.png" alt="xorg"></p>
+<p>安装 gnome 软件包组<br><code>pacman -S gnome gnome-extra gdm</code></p>
+<p>启用Gnome Display Manage（gdm）作为登陆器<br>启用网络管理器</p>
+<pre><code>systemctl start gdm.service
+systemctl enable gdm.service
+systemctl enable NetworkManager
+</code></pre><p>安装图形界面之后，可能无法直接启动，需要配置以下文件:</p>
+<pre><code>vim /etc/X11/xinit/xinitrc
+</code></pre><p><code>exec gnome-session</code></p>
+<p>还有安装字体，不然会出现中文乱码现象。<br>dejavu是Linux系统的常见西文字体，ubuntu-font-family是ubuntu家族字体，wqy-microhei是文泉驿微米黑字体。<br><code>pacman -S ttf-dejavu ttf-ubuntu-font-family wqy-microhei wqy-zenhei</code></p>
+<p>配置图形界面中文语言<br><code>echo &quot;export LANG=zh_CN.UTF-8&quot; &gt; /etc/locale.conf
+ locale-gen</code></p>
+<h2 id="安装完成"><a href="#安装完成" class="headerlink" title="安装完成"></a><strong>安装完成</strong></h2><p>到这里安装就完成了，reboot一下就可以看到漂亮的Gnome图形界面了。<br>Arch安装并不难，麻烦的是安装中遇到的问题，官方Wiki已经讲得非常清晰，学会使用搜索引擎。<br><img src="/images/arch.jpg" alt="ArchLinux"></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><strong>参考文章</strong></h2><p><a href="http://tech.flower-on.com/tool/2014/08/16/installing-archlinux/" target="_blank" rel="external">Arch Linux安装指南</a><br><a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="external">Installation guide (简体中文)</a>)<br><a href="http://www.jianshu.com/p/928dc93a32b5#" target="_blank" rel="external">在计算机中安装Arch Linux</a><br><a href="http://www.cnblogs.com/eli01/p/3559503.html" target="_blank" rel="external">archlinux安装(gnome3桌面环境)</a><br><a href="https://www.linuxdashen.com/virtualbox%E4%B8%8B%E5%BC%80%E5%90%AFuefi%E5%9B%BA%E4%BB%B6%E5%AE%89%E8%A3%85arch-linux%E8%99%9A%E6%8B%9F%E6%9C%BA" target="_blank" rel="external">Virtualbox下开启UEFI固件安装Arch Linux虚拟机</a></p>
+<hr>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[（已解决）github desktop无法安装问题]]></title>
+      <url>/2017/04/18/githubdesktop/</url>
+      <content type="html"><![CDATA[<p><img src="/images/4041.jpg" alt=""><br>新版本Github Desktop已发布，<a href="https://desktop.github.com/" target="_blank" rel="external">前往下载&gt;&gt;</a></p>
+<p>安装官网github desktop总是出现问题。<br><img src="/images/13.png" alt="image"></p>
+<p>找到internet选项<br><img src="/images/9.png" alt="image"></p>
+<p>安全选项卡的受信任的站点，点击站点<br><img src="/images/10.png" alt="image"></p>
+<p>将 <a href="https://github-windows.s3.amazonaws.com" target="_blank" rel="external">https://github-windows.s3.amazonaws.com</a><br>添加到信任列表。<br><img src="/images/11.png" alt="image"></p>
+<p>在 Internet Explorer 中打开<br><a href="https://github-windows.s3.amazonaws.com/GitHub.application" target="_blank" rel="external">https://github-windows.s3.amazonaws.com/GitHub.application</a><br>就可以正常安装啦。<br><img src="/images/12.png" alt="image"></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> github </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[markdown语言]]></title>
+      <url>/2016/12/12/markdown/</url>
+      <content type="html"><![CDATA[<p>Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。<br>看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML 标记语言来说，Markdown 可谓是十分轻量的，学习成本也不需要太多，且一旦熟悉这种语法规则，会有一劳永逸的效果。</p>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a><strong>标题</strong></h2><p>标题分六个等级，按#号个数来分</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><pre><code class="markdown"># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+</code></pre>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><h1 id="这是一个一级标题"><a href="#这是一个一级标题" class="headerlink" title="这是一个一级标题"></a>这是一个一级标题</h1><h2 id="这是一个二级标题"><a href="#这是一个二级标题" class="headerlink" title="这是一个二级标题"></a>这是一个二级标题</h2><pre><code class="markdown">这是一个一级标题
+===========
+这是一个二级标题
+----------
+</code></pre>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a><strong>文本</strong></h2><p>++下划线++<br><del>删除线</del><br><strong>粗体</strong><br><em>斜体</em><br><strong><em>粗体+斜体</em></strong></p>
+<pre><code class="markdown">++下划线++
+~~删除线~~
+**粗体**
+*斜体*
+***粗体+斜体***
+</code></pre>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a><strong>图片</strong></h2><p> <img src="http://p3.music.126.net/sSxbRt9RpC6s_MaewyDJfA==/18597139672292692.jpg?param=400y400" alt="your name"></p>
+<pre><code class="markdown">![yourname](http://p3.music.126.net/sSxbRt9RpC6s_MaewyDJfA==/18597139672292692.jpg?param=400y400)
+</code></pre>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a><strong>超链接</strong></h2><p><a href="http://www.jianshu.com/p/edee8c40e5d7" target="_blank" rel="external">如何写出一篇登得上大雅之堂的技术博客</a></p>
+<pre><code class="markdown">[如何写出一篇登得上大雅之堂的技术博客](http://www.jianshu.com/p/edee8c40e5d7)
+</code></pre>
+<h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a><strong>无序列表</strong></h2><ul>
+<li><strong>星号</strong>实现的列表</li>
+<li>记得符号与文本之间有一个<strong>空格</strong></li>
+</ul>
+<ul>
+<li><strong>减号</strong>实现的列表</li>
+</ul>
+<ul>
+<li><strong>加号</strong>实现的列表</li>
+</ul>
+<pre><code class="markdown">* **星号**实现的列表
+* 记得符号与文本之间有一个**空格**
+- **减号**实现的列表
++ **加号**实现的列表
+</code></pre>
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a><strong>有序列表</strong></h2><ol>
+<li>第一行<br>这是第一行的内容</li>
+<li>第二行<br>这是第二行的内容</li>
+<li>第三行<br>这是第三行的内容<br>我是占位行</li>
+<li>第四行<br>这是第四行的内容</li>
+</ol>
+<pre><code class="markdown">1. 第一行
+这是第一行的内容
+2. 第二行
+这是第二行的内容
+3. 第三行
+这是第三行的内容
+我是占位行
+4. 第四行
+这是第四行的内容
+</code></pre>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a><strong>引用</strong></h2><p>在摘抄他人内容的时候，使用<code>&gt;</code>实现</p>
+<blockquote>
+<p>这是一段引用文章的文字，此处省略1000字。。。</p>
+</blockquote>
+<pre><code class="markdown">&gt; 这是一段引用文章的文字，此处省略1000字。。。
+</code></pre>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a><strong>代码块</strong></h2><p><code>我是一行行内代码块</code></p>
+<pre><code class="markdown">代码块（多行代码）
+</code></pre>
+<pre><code class="cpp">  public int add(int a, int b) {
+        return a + b;
+    }
+</code></pre>
+<p><img src="/images/md1.png" alt="代码"></p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a><strong>分割线</strong></h2><hr>
+<hr>
+<hr>
+<pre><code class="markdown">* * *
+page break
+- - -
+section break
+_ _ _
+sentence break
+</code></pre>
+<p>参考：<br><a href="http://www.jianshu.com/p/96a13401b0ca" target="_blank" rel="external">程序猿修炼之道(4)-技能篇之Markdown（附：工具推荐）</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[博客概览]]></title>
+      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
+      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
+<p><img src="/images/3.png" alt=""></p>
+<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
+<div></div>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo+Github搭建静态博客]]></title>
+      <url>/2016/12/09/hexo/</url>
+      <content type="html"><![CDATA[<p>如你所见，这个博客就是用Hexo搭建的，Github pages托管</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a><strong>环境搭建</strong></h2><p>首先安装以下程序<br><a href="https://nodejs.org/" target="_blank" rel="external">Node.js</a><br><a href="https://desktop.github.com/" target="_blank" rel="external">Github Desktop</a>）<br>个人比较喜欢在Linux，用几个命令就搞定了，简单方便。</p>
+<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">其他平台安装方法&gt;&gt;</a></p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a><strong>安装Hexo</strong></h2><p>打开终端输入命令</p>
+<pre><code class="bash">npm install
+hexo-cli -g
+</code></pre>
+<p>完成Hexo安装</p>
+<pre><code class="bash">hexo init Hexo
+cd Hexo
+npm install
+</code></pre>
+<p>在当前文件夹建立Hexo目录<br>进入目录并部署</p>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a><strong>效果预览</strong></h2><p>部署成功之后，Hexo 会自动在目标文件夹建立博客网站所需要的所有文件。<br>此时可以通过输入以下命令在本地进行预览（在刚才创建的文件夹里）：</p>
+<pre><code class="bash">hexo generate (可简写为hexo g)
+hexo server   (可简写为hexo s)
+</code></pre>
+<p>发表一篇文章<br>在终端输入：</p>
+<p>新建一篇文章</p>
+<pre><code class="bash">hexo new &quot;文章标题&quot;
+</code></pre>
+<p>我们可以在本地博客文件夹source-&gt;_post文件夹下看到我们新建的markdown文件。</p>
+<p>到此本地博客框架就搭建完成了。<br>此时打开浏览器，在浏览器地址栏输入 <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> （默认端口为4000）, 便可以看到最原始的博客了。<br>以后发表博文想先预览，也可以通过 hexo server 在本地先跑起来，看看效果。<br>按 Ctrl + C 可以终止服务。</p>
+<h2 id="上传到Github"><a href="#上传到Github" class="headerlink" title="上传到Github"></a><strong>上传到Github</strong></h2><h3 id="首先到Github注册账号"><a href="#首先到Github注册账号" class="headerlink" title="首先到Github注册账号"></a><strong>首先到Github注册账号</strong></h3><p>新建一个 Repository<br><img src="/images/4.jpg" alt=""><br>在 Repository name 下填写 用户名.github.io,Description (optional) 下填写一些简单的描述（不写也没有关系），如图所示：<br><img src="/images/5.jpg" alt=""><br>简单两步 用户 名.github.io 这个域名就配置成功了。</p>
+<h3 id="到你刚刚创建的Repository下，找到以下内容："><a href="#到你刚刚创建的Repository下，找到以下内容：" class="headerlink" title="到你刚刚创建的Repository下，找到以下内容："></a><strong>到你刚刚创建的Repository下，找到以下内容：</strong></h3><p><img src="/images/6.jpg" alt=""><br>先点击HTTPS，然后复制里面的地址。然后编辑_config.yml文件<br><img src="/images/7.jpg" alt=""><br>修改文件里面的deploy。如图片修改，注意github该为git，其中的repository就改成你刚刚复制的地址。并保存这个文件。</p>
+<h3 id="配置博客"><a href="#配置博客" class="headerlink" title="配置博客"></a><strong>配置博客</strong></h3><p>主要修改_config.yml，详情可以看<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">配置hexo</a></p>
+<ol>
+<li><p>修改网站相关信息</p>
+<pre><code>title: inerdstack
+subtitle: the stack of it nerds
+description: start from zero
+author: inerdstack
+language: zh-CN
+timezone: Asia/Shanghai
+language和timezone都是有输入规范的，详细可参考语言规范和时区规范。
+</code></pre><p>注意：每一项的填写，其:后面都要保留一个空格，下同。</p>
+</li>
+<li><p>配置统一资源定位符（个人域名）</p>
+<pre><code class="bash">url: http://inerdstack.com
+</code></pre>
+<p>对于root（根目录）、permalink（永久链接）、permalink_defaults（默认永久链接）等其他信息保持默认。</p>
+</li>
+</ol>
+<h3 id="部署到Github"><a href="#部署到Github" class="headerlink" title="部署到Github"></a><strong>部署到Github</strong></h3><p>终端执行这样的命令即可：</p>
+<pre><code class="bash">hexo deploy
+</code></pre>
+<p>完成后你就可以到<a href="https://yourname.github.io" target="_blank" rel="external">https://yourname.github.io</a> 查看你的劳动成果了。</p>
+<hr>
+<p>写得不好，请各位见谅。</p>
+<p>参考：<br><a href="https://zhuanlan.zhihu.com/p/22191919" target="_blank" rel="external">用 GitHub + Hexo 建立你的第一个博客（windows平台）</a><br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">hexo官方文档</a><br><a href="http://www.jianshu.com/p/e99ed60390a8" target="_blank" rel="external">20分钟教你使用hexo搭建github博客</a><br><a href="http://jingyan.baidu.com/article/d8072ac47aca0fec95cefd2d.html" target="_blank" rel="external">史上最详细“截图”搭建Hexo博客并部署到Github</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[此博客调教中。。。]]></title>
+      <url>/2016/12/07/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95%E4%B8%AD/</url>
+      <content type="html"><![CDATA[<p><img src="/images/1.jpg" alt=""></p>
+<p>以下为测试内容：</p>
+<hr>
+<h4 id="云音乐外链"><a href="#云音乐外链" class="headerlink" title="云音乐外链"></a>云音乐外链</h4><pre><code class="html">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=471987&amp;auto=0&amp;height=66&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=471987&auto=0&height=66"></iframe>
+
+<h4 id="B站外链"><a href="#B站外链" class="headerlink" title="B站外链"></a>B站外链</h4><pre><code class="html">&lt;embed height=&quot;550&quot; width=&quot;800&quot; quality=&quot;high&quot; allowfullscreen=&quot;true&quot; type=&quot;application/x-shockwave-flash&quot; src=&quot;//static.hdslb.com/miniloader.swf&quot; flashvars=&quot;aid=4004228&amp;page=5&quot; pluginspage=&quot;//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash&quot;&gt;&lt;/embed&gt;
+</code></pre>
+<embed height="550" width="800" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=4004228&page=5" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash">
+
+
+
+<pre><code class="Cpp">#include&quot;stdio.h&quot;
+main()
+{
+    int a,b,c,d,e,f;
+    for(a=1;a&lt;=4;a++)
+    {
+        for(b=1;b&lt;=4-a;b++)
+        printf(&quot;  &quot;);
+        for(c=1;c&lt;=2*a-1;c++)
+        printf(&quot; #&quot;);
+
+        printf(&quot;\n&quot;);
+    }
+    for(a=7;a&gt;=5;a--)
+    {
+        for(b=5;b&lt;=12-a;b++)
+        printf(&quot;  &quot;);
+        for(c=5;c&lt;=2*a-5;c++)
+        printf(&quot; #&quot;);
+
+        printf(&quot;\n&quot;);
+    }
+ }
+</code></pre>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Test </tag>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2016/11/16/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+  
+  
+</search>
