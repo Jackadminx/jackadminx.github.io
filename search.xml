@@ -3,6 +3,91 @@
   
     
     <entry>
+      <title><![CDATA[使用树莓派搭建简易家庭服务器]]></title>
+      <url>/2017/10/16/dlna/</url>
+      <content type="html"><![CDATA[<p>前几天搞坏了树莓派的内存卡，只好买了一张新内存卡重新安装这些服务。<br>我安装了几个程序，重启就消失了，读卡器连接电脑用闪存擦除工具格式化，提示只读。可能内存卡是寿命到了。。。<br>想想树莓派被我摧chi残hui了一年多依然坚挺，质量比国产寨板好到不知道哪里去了。<br><img src="/images/dlna/12.jpg" alt=""><br>还记得这个吗？</p>
+<p>使用树莓派快速搭建Samba+DLNA+aria2服务器。 让我来简单的讲讲这些功能：</p>
+<ul>
+<li>Samba ：主要是用于共享文件，手机和电脑都可以很方便的访问。</li>
+<li>DLNA ：流媒体服务器。用于媒体局域网共享。</li>
+<li>Aria2 ： 用于搭建下载服务器。</li>
+</ul>
+<h2 id="Samba服务器"><a href="#Samba服务器" class="headerlink" title="Samba服务器"></a><strong>Samba服务器</strong></h2><p>我这里直接将/home/pi共享方便在电脑上面操作。<br>你可以利用此方法将硬盘挂载到树莓派上制作家用NAS</p>
+<pre><code class="bash">sudo apt update
+sudo apt install samba samba-common-bin
+</code></pre>
+<p>更新源，安装Samba</p>
+<p>安装完成后编辑配置文件<code>/etc/samba/smb.conf</code>在末尾加上这段代码：</p>
+<pre><code>[RaspberryPi]
+comment=Raspberry Pi
+path=/home/pi #共享路径
+writeable=yes  #可写
+browsable=yes #可浏览
+create mask=0777 #新创建文件的默认属性
+directory mask=0777 #新创建文件的默认属性
+valid users=pi #用户
+public=no #共享
+</code></pre><p>添加用户：<br><code>smbpasswd –a pi</code><br>重启服务看看有没有报错<br><code>/etc/init.d/samba restart</code></p>
+<p>完成后打开Windows资源管理器，在地址栏输入//+树莓派ip<br>链接后会提示输入用户名和密码，这里输入设置的共享用户名和密码。<br>最后在计算机下会出现共享的文件夹，点开文件夹，新建文件夹进行一下测试，如果能正常建立，就说明ok了，如果不行，应该是权限问题，可再重新设置一下文件夹权限。<br><img src="/images/dlna/1.png" alt=""><br>加入映射网络驱动器，这样就不用每次都输IP地址了。</p>
+<h2 id="DLNA流媒体服务器"><a href="#DLNA流媒体服务器" class="headerlink" title="DLNA流媒体服务器"></a><strong>DLNA流媒体服务器</strong></h2><p>用于媒体局域网共享。我经常用来远程推送歌曲<br>安装minidlna</p>
+<pre><code class="bash">sudo apt install minidlna
+</code></pre>
+<p>编辑配置文件/etc/minidlna.conf<br>在末尾添加：</p>
+<pre><code>#A表示这个目录是存放音乐的，当minidlna读到配置文件时，它会自动加载这个目录下的音乐文件
+media_dir=A,/home/pi/DLNA/Music
+media_dir=P,/home/pi/DLNA/Picture
+media_dir=V,/home/pi/home/DLNA/Video
+#配置minidlna的数库数据的存放目录
+db_dir=/home/pi/DLNA/db
+#配置日志目录
+log_dir=/home/pi/DLNA/log
+</code></pre><p>创建上面指定的路径，建议将讲权限设置为777</p>
+<p>重启minidlna</p>
+<pre><code class="bash">/etc/init.d/minidlna restart
+</code></pre>
+<p>测试：</p>
+<pre><code class="bash">/etc/init.d/minidlna status
+</code></pre>
+<p>浏览器打开<a href="http://树莓派ip:8200" target="_blank" rel="external">http://树莓派ip:8200</a><br>可以查看dlna运行情况</p>
+<h2 id="aria2下载服务器"><a href="#aria2下载服务器" class="headerlink" title="aria2下载服务器"></a><strong>aria2下载服务器</strong></h2><h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><pre><code class="bash">sudo apt install aria2
+</code></pre>
+<h3 id="创建配置文件："><a href="#创建配置文件：" class="headerlink" title="创建配置文件："></a>创建配置文件：</h3><pre><code class="bash">cd ~
+mkdir aria2
+touch aria2.session
+nano aria2.conf
+</code></pre>
+<pre><code>dir=/home/pi/download
+disable-ipv6=true
+#打开rpc的目的是为了给web管理端用
+enable-rpc=true
+rpc-allow-origin-all=true
+rpc-listen-all=true
+#rpc-listen-port=6800
+continue=true
+input-file=/home/pi/aria2/aria2.session
+save-session=/home/pi/aria2/aria2.session
+max-concurrent-downloads=3
+</code></pre><h3 id="启动aria2"><a href="#启动aria2" class="headerlink" title="启动aria2"></a>启动aria2</h3><p><code>aria2c --conf-path=/home/pi/aria2/aria2.conf</code><br>如果没有提示任何错误信息，那就按ctrl+c停止上面的语句，转为后台运行：<br><code>sudo aria2c --conf-path=/home/pi/aria2/aria2.conf －D</code></p>
+<h3 id="配置图形界面管理下载："><a href="#配置图形界面管理下载：" class="headerlink" title="配置图形界面管理下载："></a>配置图形界面管理下载：</h3><p>aria2默认是通过shell进行操作的，没有图形界面。<br>需要安装apache+webui。<br>当然如果你不想给树莓派安装网页服务器，可以通过安装浏览器插件的方法实现</p>
+<pre><code class="bash">sudo apt install apache2 git
+chmod 777 /var/www
+cd /var/www
+git clone https://github.com/ziahamza/webui-aria2.git
+</code></pre>
+<p>完成后的效果：<br><img src="/images/dlna/2.png" alt="图片来自网络，侵删"></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a><strong>参考文章</strong></h2><p><a href="http://www.cnblogs.com/xiaowuyi/p/4051238.html" target="_blank" rel="external">树莓派学习笔记（5）：成功实现NAS家庭服务器（流媒体播放、文件共享及下载机）</a><br><a href="http://blog.csdn.net/huayucong/article/details/54090239" target="_blank" rel="external">树梅派应用34：树莓派安装DLNA实现流媒体服务器</a><br><a href="http://www.jianshu.com/p/d7e01982e474" target="_blank" rel="external">Aria2 配置及使用详细教程</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux RapiberryPi </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Arch更新后网易云音乐无法启动解决方法]]></title>
       <url>/2017/10/13/music163/</url>
       <content type="html"><![CDATA[<p>不得不说ArchLinx的更新策略确实有些激进，<br>滚动更新后就出了一堆问题，其中就包括网易云音乐</p>
@@ -568,17 +653,6 @@ sentence break
     </entry>
     
     <entry>
-      <title><![CDATA[博客概览]]></title>
-      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
-      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
-<p><img src="/images/3.png" alt=""></p>
-<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
-<div></div>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Hexo+Github搭建静态博客]]></title>
       <url>/2016/12/09/hexo/</url>
       <content type="html"><![CDATA[<p>如你所见，这个博客就是用Hexo搭建的，Github pages托管</p>
@@ -641,6 +715,17 @@ language和timezone都是有输入规范的，详细可参考语言规范和时�
             <tag> Git </tag>
             
         </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[博客概览]]></title>
+      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
+      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
+<p><img src="/images/3.png" alt=""></p>
+<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
+<div></div>]]></content>
+      
         
     </entry>
     
