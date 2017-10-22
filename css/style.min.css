@@ -1535,6 +1535,10 @@ a {
     width: 99%
 }
 
+#scheme-Isolation a {
+	text-decoration: none;
+}
+
 @media screen and (min-width: 386px) {
     #scheme-Isolation .post_entry-footer {
         padding: 24px;
