@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title><![CDATA[Git常用命令]]></title>
+      <url>/2017/10/23/git/</url>
+      <content type="html"><![CDATA[<p><code>git init</code><br>创建新的git仓库</p>
+<p><code>git add</code><br>将文件加入跟踪</p>
+<p><code>git commit</code><br>将暂存区中的文件提交至HEAD所指向的分支<br><em><br>Git 每次提交代码，都要写 Commit message（提交说明），否则就不允许提交。<br><code>git commit -m &quot;hello world&quot;</code><br>上面代码的-m参数，就是用来指定 commit mesage 的。<br>如果一行不够，可以只执行git commit，就会跳出文本编译器，让你写多行。<br><code>git commit</code>
+</em></p>
+<p><code>git rm</code><br>删除文件后使用<br>将已经跟踪的文件从Git中移除</p>
+<p><code>git status</code><br>查看仓库文件状态</p>
+<p><code>git reset --hard HEAD^</code><br>回退到上一个版本<br>上一次的提交就是 HEAD^，上上次是 HEAD^^，也可以写成 HEAD~2，以此类推。<br>–hard 表示放弃所有的本地改动</p>
+<p><code>git reset --hard 15547</code><br>回退到某个指定的提交（id前几位，git log里面）</p>
+<p><code>.gitignore</code><br>忽略文件列表</p>
+<p><em><br>• 所有空行或者以注释符号 # 开头的行都会被 Git 忽略。<br>• 可以使用标准的 glob 模式匹配。<br>• 匹配模式最后跟反斜杠(/)说明要忽略的是目录。<br>• 要忽略指定模式以外的文件或目录,可以在模式前加上惊叹号(!)取反。
+</em></p>
+<p><code>git checkout -- &lt;file&gt;</code><br>撤销修改</p>
+<p><code>git reset HEAD &lt;file&gt;</code><br>撤销暂存</p>
+<p><code>git remote</code><br>查看当前的远程仓库</p>
+<p><code>git remote add [shortname] [url]</code><br>添加一个远程仓库</p>
+<p><code>git remote rm myremote</code><br>清除远程仓库</p>
+<hr>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=32320920&auto=0&height=66"></iframe>]]></content>
+      
+        
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用树莓派搭建简易家庭服务器]]></title>
       <url>/2017/10/16/dlna/</url>
       <content type="html"><![CDATA[<p>前几天搞坏了树莓派的内存卡，只好买了一张新内存卡重新安装这些服务。<br>我安装了几个程序，重启就消失了，读卡器连接电脑用闪存擦除工具格式化，提示只读。可能内存卡是寿命到了。。。<br>想想树莓派被我摧chi残hui了一年多依然坚挺，质量比国产寨板好到不知道哪里去了。<br><img src="/images/dlna/12.jpg" alt=""><br>还记得这个吗？</p>
@@ -655,17 +686,6 @@ sentence break
     </entry>
     
     <entry>
-      <title><![CDATA[博客概览]]></title>
-      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
-      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
-<p><img src="/images/3.png" alt=""></p>
-<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
-<div></div>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Hexo+Github搭建静态博客]]></title>
       <url>/2016/12/09/hexo/</url>
       <content type="html"><![CDATA[<p>如你所见，这个博客就是用Hexo搭建的，Github pages托管</p>
@@ -728,6 +748,17 @@ language和timezone都是有输入规范的，详细可参考语言规范和时�
             <tag> Git </tag>
             
         </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[博客概览]]></title>
+      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
+      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
+<p><img src="/images/3.png" alt=""></p>
+<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
+<div></div>]]></content>
+      
         
     </entry>
     
