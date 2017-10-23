@@ -21,6 +21,9 @@
 <p><code>git remote</code><br>查看当前的远程仓库</p>
 <p><code>git remote add [shortname] [url]</code><br>添加一个远程仓库</p>
 <p><code>git remote rm myremote</code><br>清除远程仓库</p>
+<p><code>git push -u origin master</code><br>推送master分支的所有内容<br>第一次使用加上了-u参数，是推送内容并关联分支。</p>
+<p>下次只要本地作了提交，就可以通过命令：<br><code>git push origin master</code></p>
+<p>取回远程主机某个分支的更新，如<br><code>$ git pull origin master</code></p>
 <hr>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=32320920&auto=0&height=66"></iframe>]]></content>
       
