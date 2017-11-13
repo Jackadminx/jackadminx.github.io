@@ -30,7 +30,7 @@ pip shadowsocks
 <p>在后台运行:</p>
 <pre><code class="bash">ssserver -c /etc/shadowsocks.json -d start
 </code></pre>
-<p>如果需要开机启动将上移条语句添加到/etc/rc.local中即可。</p>
+<p>如果需要开机启动将上面的语句添加到/etc/rc.local中即可。</p>
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a><strong>链接</strong></h2><p><a href="http://www.whogh.com/2017/02/17/debian-%E6%90%AD%E5%BB%BAss%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Debian 搭建ss服务器教程</a><br><a href="https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File" target="_blank" rel="external">Configuration via Config File</a><br><a href="https://blog.nfz.moe/archives/the-prosperous-china-as-you-wish.html" target="_blank" rel="external">这是最好的时代 这是最坏的时代</a></p>
 ]]></content>
       
@@ -730,6 +730,17 @@ sentence break
     </entry>
     
     <entry>
+      <title><![CDATA[博客概览]]></title>
+      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
+      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
+<p><img src="/images/3.png" alt=""></p>
+<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
+<div></div>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hexo+Github搭建静态博客]]></title>
       <url>/2016/12/09/hexo/</url>
       <content type="html"><![CDATA[<p>如你所见，这个博客就是用Hexo搭建的，Github pages托管</p>
@@ -792,17 +803,6 @@ language和timezone都是有输入规范的，详细可参考语言规范和时�
             <tag> Git </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[博客概览]]></title>
-      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
-      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
-<p><img src="/images/3.png" alt=""></p>
-<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
-<div></div>]]></content>
-      
         
     </entry>
     
