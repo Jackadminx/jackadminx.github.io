@@ -3,6 +3,47 @@
   
     
     <entry>
+      <title><![CDATA[Debian快速搭建ss服务]]></title>
+      <url>/2017/11/13/ss/</url>
+      <content type="html"><![CDATA[<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a><strong>环境搭建</strong></h2><p>这里使用的是python版本的ss，因为安装起来比较方便</p>
+<pre><code class="bash">apt update &amp; upgrade
+apt install python-pip python-m2crypto
+pip shadowsocks
+</code></pre>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a><strong>配置文件</strong></h2><pre><code class="bash">vi /etc/shadowsocks.json
+</code></pre>
+<p>添加并修改即可:</p>
+<pre><code class="json">{
+    &quot;server&quot;:&quot;my_server_ip&quot;,
+    &quot;server_port&quot;:8388,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;mypassword&quot;,
+    &quot;timeout&quot;:300,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+    &quot;fast_open&quot;: false
+}
+</code></pre>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a><strong>启动服务</strong></h2><p>运行并显示log:</p>
+<pre><code class="bash">ssserver -c /etc/shadowsocks.json
+</code></pre>
+<p>在后台运行:</p>
+<pre><code class="bash">ssserver -c /etc/shadowsocks.json -d start
+</code></pre>
+<p>如果需要开机启动将上移条语句添加到/etc/rc.local中即可。</p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a><strong>链接</strong></h2><p><a href="http://www.whogh.com/2017/02/17/debian-%E6%90%AD%E5%BB%BAss%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Debian 搭建ss服务器教程</a><br><a href="https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File" target="_blank" rel="external">Configuration via Config File</a><br><a href="https://blog.nfz.moe/archives/the-prosperous-china-as-you-wish.html" target="_blank" rel="external">这是最好的时代 这是最坏的时代</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Git常用命令]]></title>
       <url>/2017/10/23/git/</url>
       <content type="html"><![CDATA[<p><code>git init</code><br>创建新的git仓库</p>
