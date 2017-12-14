@@ -3,6 +3,60 @@
   
     
     <entry>
+      <title><![CDATA[联想P8平板搞机小记]]></title>
+      <url>/2017/12/14/p8/</url>
+      <content type="html"><![CDATA[<p>用了几个月说说感受吧</p>
+<p>优点：性价比高，省电，运行流畅</p>
+<p>缺点：系统简陋且有一些bug，屏幕素质一般</p>
+<p>被windows平板折腾得够呛的我决定转向安卓平板，打算用于娱乐和阅读文档希望能简单方便一点，结果却又进了另外一个大坑。在贴吧和京东逛了许久，于是双11之前在马云家入手P8平板。其实还有一款就是京东平板，性价比更好，但是看到系统（Flyme）没法root还是放弃了。</p>
+<p>最想吐槽的就是系统了，简陋到不行；什么桌面设置，分屏，就连自定义下拉栏都没。。。算了这些root后应该可以解决。</p>
+<p>到了Android6.0以后有一个不错的功能：将内存卡作为内部储存来用，可以将部分应用迁移到内存卡中。但这样内存卡就不能给另外的设备使用。有一次就是忘了备份，刷机后手机电脑都打不开内存卡，搞得我只能格式化😭</p>
+<h2 id="备份QCN"><a href="#备份QCN" class="headerlink" title="备份QCN"></a>备份QCN</h2><p>高通备份QCN是刷机之前必做的事情，主要是设备串号序列号等信息</p>
+<p>1.到联想社区下载对应的设备驱动和QPST，安装。</p>
+<p>2.关闭平板，摁住右侧所以按键，进入工厂模式（此时会打开高通Diagnostics端口）数据线连接电脑</p>
+<p><img src="/images/p8/1.jpg" alt=""></p>
+<p>3.打开QPST Configuration 点击 add new port 选择Diagnostics端口 </p>
+<p><img src="/images/p8/2.jpg" alt=""></p>
+<p>4.选择start clients&gt;software download</p>
+<p><img src="/images/p8/3.jpg" alt=""></p>
+<p>5.backup&gt;文件输出选择.qcn后缀&gt;点击start</p>
+<p><img src="/images/p8/4.jpg" alt=""></p>
+<p>（win10系统可能无法点击start，使用tab键解决）</p>
+<p>恢复QCN</p>
+<p>点击restore&gt;选择QCN文件&gt;勾选mismatch选项&gt;start</p>
+<p><img src="/images/p8/5.jpg" alt=""></p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h2><p>这款平板对应的Rom非常之少，暂时只找到国际版和国内版的固件。国际版的固件虽然自带google套件但在国内搜不到GPS。国内版在联想社区的帖子被删除了，但是在贴吧还可以找到网盘分享。</p>
+<p>1.平板关机，按住音量上键，数据线连接电脑进入9008端口（推荐使用USB2.0接口）</p>
+<p>2.打开QFIL，设定端口和文件</p>
+<p><img src="/images/p8/6.jpg" alt=""></p>
+<p><img src="/images/p8/7.jpg" alt=""></p>
+<p><img src="/images/p8/8.jpg" alt=""></p>
+<p><img src="/images/p8/9.jpg" alt=""></p>
+<p>然后点击Download开始刷机</p>
+<h2 id="刷入TWRP和Root"><a href="#刷入TWRP和Root" class="headerlink" title="刷入TWRP和Root"></a>刷入TWRP和Root</h2><p>刷TWRP的方法与刷固件的方法一致，这里就不重复了。</p>
+<p>刷入成功后自动进入TWRP,点击高级&gt;root系统就可以了</p>
+<p><img src="/images/p8/10.jpg" alt=""></p>
+<p>注意root后打开设置里面应用的自启动，不然可能会导致root授权无法弹出</p>
+<h2 id="安装Google-Play服务"><a href="#安装Google-Play服务" class="headerlink" title="安装Google Play服务"></a>安装Google Play服务</h2><p>平板安装Open gapps（下载缓慢记得科学上网），下载对应版本卡刷包，进入TRWP安装</p>
+<p>文件位于/sdcard/download/opengapps目录下</p>
+<p><img src="/images/p8/11.jpg" alt=""></p>
+<p>如遇到服务已经停止运行，进入系统设置授予google play服务权限。</p>
+<h2 id="参考与连接"><a href="#参考与连接" class="headerlink" title="参考与连接"></a>参考与连接</h2><p><a href="https://pan.baidu.com/s/1slyrbAX" target="_blank" rel="external">国行固件t9ew</a></p>
+<p><a href="https://tieba.baidu.com/p/5365311902?red_tag=2495343454" target="_blank" rel="external">【教程】联想平板P8–8703F备份恢复NV（*.qcn）教程</a></p>
+<p><a href="https://club.lenovo.com.cn/thread-2783629-1-1.html" target="_blank" rel="external">【LR.Team】联想P8平板专版中文TWRP-LR.Team定制版8.21更新</a></p>
+<p><a href="https://club.lenovo.com.cn/thread-1910183-1-1.html" target="_blank" rel="external">【首发】联想P8平板 WiFi版救砖包（海外版含谷歌套件）</a></p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Debian快速搭建ss服务]]></title>
       <url>/2017/11/13/ss/</url>
       <content type="html"><![CDATA[<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a><strong>环境搭建</strong></h2><p>这里使用的是python版本的ss，因为安装起来比较方便</p>
@@ -730,6 +784,17 @@ sentence break
     </entry>
     
     <entry>
+      <title><![CDATA[博客概览]]></title>
+      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
+      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
+<p><img src="/images/3.png" alt=""></p>
+<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
+<div></div>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hexo+Github搭建静态博客]]></title>
       <url>/2016/12/09/hexo/</url>
       <content type="html"><![CDATA[<p>如你所见，这个博客就是用Hexo搭建的，Github pages托管</p>
@@ -792,17 +857,6 @@ language和timezone都是有输入规范的，详细可参考语言规范和时�
             <tag> Git </tag>
             
         </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[博客概览]]></title>
-      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
-      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
-<p><img src="/images/3.png" alt=""></p>
-<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
-<div></div>]]></content>
-      
         
     </entry>
     

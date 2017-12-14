@@ -37,7 +37,7 @@
     
     <title>
         
-            博客概览 | 
+            联想P8平板搞机小记 | 
         
         小云的笔记本
     </title>
@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#4bacb8">
     <meta name="author" content="Jancgk">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="Blog">
+    <meta name="keywords" content="Blog,android">
 
     <!-- Import lsloader -->
     <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(window.oldVersion){var remove=window.oldVersion.reduce(function(p,c){return p||data.indexOf("/*"+c+"*/")!==-1},false);if(remove){lsloader.removeLS(key)}}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload,isJs){if(typeof cssonload==="boolean"){isJs=cssonload;cssonload=undefined}isJs=isJs||false;cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload,isJs);return}code=code.split(versionString)[1];if(isJs){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload,isJs)}};lsloader.requestResource=function(name,path,cssonload,isJs){var that=this;if(isJs){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else{this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
@@ -259,18 +259,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="https://jackadminx.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="博客概览 | 小云的笔记本">
+    <meta property="og:title" content="联想P8平板搞机小记 | 小云的笔记本">
     <meta property="og:image" content="https://jackadminx.github.io/img/favicon.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="android"> 
 
     
-        <meta property="article:published_time" content="Fri Dec 09 2016 11:46:28 GMT+0800" />
-        <meta property="article:modified_time" content="Mon Dec 12 2016 00:45:57 GMT+0800" />
+        <meta property="article:published_time" content="Thu Dec 14 2017 21:39:41 GMT+0800" />
+        <meta property="article:modified_time" content="Fri Dec 15 2017 00:58:32 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="博客概览 | 小云的笔记本">
+    <meta name="twitter:title" content="联想P8平板搞机小记 | 小云的笔记本">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="https://jackadminx.github.io/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -278,7 +278,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://jackadminx.github.io/2016/12/09/博客概览/index.html" />
+        <link rel="canonical" href="https://jackadminx.github.io/2017/12/14/p8/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -290,10 +290,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://jackadminx.github.io/2016/12/09/博客概览/index.html",
-    "headline": "博客概览",
-    "datePublished": "Fri Dec 09 2016 11:46:28 GMT+0800",
-    "dateModified": "Mon Dec 12 2016 00:45:57 GMT+0800",
+    "mainEntityOfPage": "https://jackadminx.github.io/2017/12/14/p8/index.html",
+    "headline": "联想P8平板搞机小记",
+    "datePublished": "Thu Dec 14 2017 21:39:41 GMT+0800",
+    "dateModified": "Fri Dec 15 2017 00:58:32 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Jancgk",
@@ -311,7 +311,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": "Blog",
+    "keywords": ",androidBlog",
     "description": "",
 }
 </script>
@@ -512,19 +512,11 @@
     <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_thumbnail-custom post_thumbnail-random post_thumbnail-xxxx" style=" width: 100%; position: relative; padding-bottom: 56.25%; height: 0;">
-            <!-- Author Avatar & Name -->
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
+        <!-- 删除文章图片上的头像 -->
 
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
+        <!-- Custom thumbnail -->
+        <div class="post_thumbnail-custom">
+            <img src="/images/b/p8.jpg">
     
         </div>
 
@@ -544,7 +536,7 @@
     <!-- Author Name & Date -->
     <div style="display: flex; flex-direction: column;">
         <strong>Jancgk</strong>
-        <span>12月 09, 2016</span>
+        <span>12月 14, 2017</span>
     </div>
 
     <div class="section-spacer" style="flex-grow: 1;"></div>
@@ -562,6 +554,15 @@
 
     <!-- Tags (bookmark) -->
     
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/android/">android</a>
+    </ul>
+    
 
     <!-- Share -->
     
@@ -576,7 +577,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=博客概览&url=https://jackadminx.github.io/2016/12/09/博客概览/index.html&pic=https://jackadminx.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=联想P8平板搞机小记&url=https://jackadminx.github.io/2017/12/14/p8/index.html&pic=https://jackadminx.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -585,7 +586,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=博客概览&url=https://jackadminx.github.io/2016/12/09/博客概览/index.html&via=Jancgk" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=联想P8平板搞机小记&url=https://jackadminx.github.io/2017/12/14/p8/index.html&via=Jancgk" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -597,7 +598,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://jackadminx.github.io/2016/12/09/博客概览/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://jackadminx.github.io/2017/12/14/p8/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -609,7 +610,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=小云的笔记本&title=博客概览&summary=&pics=https://jackadminx.github.io/img/favicon.png&url=https://jackadminx.github.io/2016/12/09/博客概览/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=小云的笔记本&title=联想P8平板搞机小记&summary=&pics=https://jackadminx.github.io/img/favicon.png&url=https://jackadminx.github.io/2017/12/14/p8/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -632,12 +633,49 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                博客概览
+                联想P8平板搞机小记
             </p>
-            <p><img src="/images/2.png" alt=""></p>
-<p><img src="/images/3.png" alt=""></p>
-<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
-<div></div>
+            <p>用了几个月说说感受吧</p>
+<p>优点：性价比高，省电，运行流畅</p>
+<p>缺点：系统简陋且有一些bug，屏幕素质一般</p>
+<p>被windows平板折腾得够呛的我决定转向安卓平板，打算用于娱乐和阅读文档希望能简单方便一点，结果却又进了另外一个大坑。在贴吧和京东逛了许久，于是双11之前在马云家入手P8平板。其实还有一款就是京东平板，性价比更好，但是看到系统（Flyme）没法root还是放弃了。</p>
+<p>最想吐槽的就是系统了，简陋到不行；什么桌面设置，分屏，就连自定义下拉栏都没。。。算了这些root后应该可以解决。</p>
+<p>到了Android6.0以后有一个不错的功能：将内存卡作为内部储存来用，可以将部分应用迁移到内存卡中。但这样内存卡就不能给另外的设备使用。有一次就是忘了备份，刷机后手机电脑都打不开内存卡，搞得我只能格式化😭</p>
+<h2 id="备份QCN"><a href="#备份QCN" class="headerlink" title="备份QCN"></a>备份QCN</h2><p>高通备份QCN是刷机之前必做的事情，主要是设备串号序列号等信息</p>
+<p>1.到联想社区下载对应的设备驱动和QPST，安装。</p>
+<p>2.关闭平板，摁住右侧所以按键，进入工厂模式（此时会打开高通Diagnostics端口）数据线连接电脑</p>
+<p><img src="/images/p8/1.jpg" alt=""></p>
+<p>3.打开QPST Configuration 点击 add new port 选择Diagnostics端口 </p>
+<p><img src="/images/p8/2.jpg" alt=""></p>
+<p>4.选择start clients&gt;software download</p>
+<p><img src="/images/p8/3.jpg" alt=""></p>
+<p>5.backup&gt;文件输出选择.qcn后缀&gt;点击start</p>
+<p><img src="/images/p8/4.jpg" alt=""></p>
+<p>（win10系统可能无法点击start，使用tab键解决）</p>
+<p>恢复QCN</p>
+<p>点击restore&gt;选择QCN文件&gt;勾选mismatch选项&gt;start</p>
+<p><img src="/images/p8/5.jpg" alt=""></p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><h2 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h2><p>这款平板对应的Rom非常之少，暂时只找到国际版和国内版的固件。国际版的固件虽然自带google套件但在国内搜不到GPS。国内版在联想社区的帖子被删除了，但是在贴吧还可以找到网盘分享。</p>
+<p>1.平板关机，按住音量上键，数据线连接电脑进入9008端口（推荐使用USB2.0接口）</p>
+<p>2.打开QFIL，设定端口和文件</p>
+<p><img src="/images/p8/6.jpg" alt=""></p>
+<p><img src="/images/p8/7.jpg" alt=""></p>
+<p><img src="/images/p8/8.jpg" alt=""></p>
+<p><img src="/images/p8/9.jpg" alt=""></p>
+<p>然后点击Download开始刷机</p>
+<h2 id="刷入TWRP和Root"><a href="#刷入TWRP和Root" class="headerlink" title="刷入TWRP和Root"></a>刷入TWRP和Root</h2><p>刷TWRP的方法与刷固件的方法一致，这里就不重复了。</p>
+<p>刷入成功后自动进入TWRP,点击高级&gt;root系统就可以了</p>
+<p><img src="/images/p8/10.jpg" alt=""></p>
+<p>注意root后打开设置里面应用的自启动，不然可能会导致root授权无法弹出</p>
+<h2 id="安装Google-Play服务"><a href="#安装Google-Play服务" class="headerlink" title="安装Google Play服务"></a>安装Google Play服务</h2><p>平板安装Open gapps（下载缓慢记得科学上网），下载对应版本卡刷包，进入TRWP安装</p>
+<p>文件位于/sdcard/download/opengapps目录下</p>
+<p><img src="/images/p8/11.jpg" alt=""></p>
+<p>如遇到服务已经停止运行，进入系统设置授予google play服务权限。</p>
+<h2 id="参考与连接"><a href="#参考与连接" class="headerlink" title="参考与连接"></a>参考与连接</h2><p><a href="https://pan.baidu.com/s/1slyrbAX" target="_blank" rel="external">国行固件t9ew</a></p>
+<p><a href="https://tieba.baidu.com/p/5365311902?red_tag=2495343454" target="_blank" rel="external">【教程】联想平板P8–8703F备份恢复NV（*.qcn）教程</a></p>
+<p><a href="https://club.lenovo.com.cn/thread-2783629-1-1.html" target="_blank" rel="external">【LR.Team】联想P8平板专版中文TWRP-LR.Team定制版8.21更新</a></p>
+<p><a href="https://club.lenovo.com.cn/thread-1910183-1-1.html" target="_blank" rel="external">【首发】联想P8平板 WiFi版救砖包（海外版含谷歌套件）</a></p>
+
             
         </div>
     
@@ -654,8 +692,8 @@
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'https://jackadminx.github.io/2016/12/09/博客概览/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'https://jackadminx.github.io/2016/12/09/博客概览/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'https://jackadminx.github.io/2017/12/14/p8/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://jackadminx.github.io/2017/12/14/p8/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script type="text/ls-javascript" id="disqus-thread-script">
@@ -685,21 +723,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2016/12/12/markdown/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2016/12/09/hexo/" id="post_nav-older" class="next-content">
+        <a href="/2017/11/13/ss/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
