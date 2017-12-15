@@ -784,17 +784,6 @@ sentence break
     </entry>
     
     <entry>
-      <title><![CDATA[博客概览]]></title>
-      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
-      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
-<p><img src="/images/3.png" alt=""></p>
-<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
-<div></div>]]></content>
-      
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Hexo+Github搭建静态博客]]></title>
       <url>/2016/12/09/hexo/</url>
       <content type="html"><![CDATA[<p>如你所见，这个博客就是用Hexo搭建的，Github pages托管</p>
@@ -857,6 +846,17 @@ language和timezone都是有输入规范的，详细可参考语言规范和时�
             <tag> Git </tag>
             
         </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[博客概览]]></title>
+      <url>/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/</url>
+      <content type="html"><![CDATA[<p><img src="/images/2.png" alt=""></p>
+<p><img src="/images/3.png" alt=""></p>
+<p><div align="right"><br>Jancgk.<br>Theme by Charles<br>2016-12-9</div></p>
+<div></div>]]></content>
+      
         
     </entry>
     
