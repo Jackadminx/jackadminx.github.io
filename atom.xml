@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小云的笔记本</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.whois42.me/"/>
+  <updated>2017-12-16T13:07:55.026Z</updated>
+  <id>https://blog.whois42.me/</id>
+  
+  <author>
+    <name>Jancgk</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Daft Punk - Contact</title>
+    <link href="https://blog.whois42.me/2017/12/15/Contact/"/>
+    <id>https://blog.whois42.me/2017/12/15/Contact/</id>
+    <published>2017-12-15T14:13:44.000Z</published>
+    <updated>2017-12-16T13:07:55.026Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div style=&quot;width:100%;position:relative;padding-bottom:56.25%;height:0;&quot; data-ratio=&quot;16:9&quot;&gt;&lt;br&gt;&lt;video style=&quot;position:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="video" scheme="https://blog.whois42.me/tags/video/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>联想P8平板搞机小记</title>
+    <link href="https://blog.whois42.me/2017/12/14/p8/"/>
+    <id>https://blog.whois42.me/2017/12/14/p8/</id>
+    <published>2017-12-14T13:39:41.000Z</published>
+    <updated>2017-12-14T16:58:32.695Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;用了几个月说说感受吧&lt;/p&gt;
+&lt;p&gt;优点：性价比高，省电，运行流畅&lt;/p&gt;
+&lt;p&gt;缺点：系统简陋且有一些bug，屏幕素质一般&lt;/p&gt;
+&lt;p&gt;被windows平板折腾得够呛的我决定转向安卓平板，打算用于娱乐和阅读文档希望能简单方便一点，结果却又进了另外一个大坑。在贴吧和京东逛
+        
+      
+    
+    </summary>
+    
+    
+      <category term="android" scheme="https://blog.whois42.me/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Debian快速搭建ss服务</title>
+    <link href="https://blog.whois42.me/2017/11/13/ss/"/>
+    <id>https://blog.whois42.me/2017/11/13/ss/</id>
+    <published>2017-11-13T07:58:08.000Z</published>
+    <updated>2017-12-11T07:54:12.785Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot; title=&quot;环境搭建&quot;&gt;&lt;/a&gt;&lt;strong&gt;环境搭建&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;这里使用的是python版本的ss，因为安装起来比较方便&lt;/p&gt;
+&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git常用命令</title>
+    <link href="https://blog.whois42.me/2017/10/23/git/"/>
+    <id>https://blog.whois42.me/2017/10/23/git/</id>
+    <published>2017-10-23T14:07:50.000Z</published>
+    <updated>2017-10-23T15:01:47.645Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;code&gt;git init&lt;/code&gt;&lt;br&gt;创建新的git仓库&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git add&lt;/code&gt;&lt;br&gt;将文件加入跟踪&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git
+        
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="https://blog.whois42.me/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用树莓派搭建简易家庭服务器</title>
+    <link href="https://blog.whois42.me/2017/10/16/dlna/"/>
+    <id>https://blog.whois42.me/2017/10/16/dlna/</id>
+    <published>2017-10-16T14:32:28.000Z</published>
+    <updated>2017-10-19T14:22:00.186Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;前几天搞坏了树莓派的内存卡，只好买了一张新内存卡重新安装这些服务。&lt;br&gt;我安装了几个程序，重启就消失了，读卡器连接电脑用闪存擦除工具格式化，提示只读。可能内存卡是寿命到了。。。&lt;br&gt;想想树莓派被我摧chi残hui了一年多依然坚挺，质量比国产寨板好到不知道哪里去了。&lt;br
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+      <category term="RapiberryPi" scheme="https://blog.whois42.me/tags/RapiberryPi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Arch更新后网易云音乐无法启动解决方法</title>
+    <link href="https://blog.whois42.me/2017/10/13/music163/"/>
+    <id>https://blog.whois42.me/2017/10/13/music163/</id>
+    <published>2017-10-13T13:15:10.000Z</published>
+    <updated>2017-10-13T15:52:18.327Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;不得不说ArchLinx的更新策略确实有些激进，&lt;br&gt;滚动更新后就出了一堆问题，其中就包括网易云音乐&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;$
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用PL2303 串口升级模块（USB转TTL）连接树莓派</title>
+    <link href="https://blog.whois42.me/2017/09/17/ttl/"/>
+    <id>https://blog.whois42.me/2017/09/17/ttl/</id>
+    <published>2017-09-17T14:35:10.000Z</published>
+    <updated>2017-10-06T14:44:00.107Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;如果你有一台没有显示器的树莓派，这个是一个可选的连接方法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/ttl/usb-to-ttl-3.jpg&quot; alt=&quot;图片来自网络，侵删&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="RaspberryPi" scheme="https://blog.whois42.me/tags/RaspberryPi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vbox常见问题</title>
+    <link href="https://blog.whois42.me/2017/09/07/Vbox/"/>
+    <id>https://blog.whois42.me/2017/09/07/Vbox/</id>
+    <published>2017-09-07T11:43:03.000Z</published>
+    <updated>2017-09-10T04:55:34.457Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;vbox移动虚拟硬盘文件后无法加载问题&quot;&gt;&lt;a href=&quot;#vbox移动虚拟硬盘文件后无法加载问题&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VM" scheme="https://blog.whois42.me/tags/VM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Raspbian修改软件源</title>
+    <link href="https://blog.whois42.me/2017/09/05/Raspbian%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    <id>https://blog.whois42.me/2017/09/05/Raspbian修改软件源/</id>
+    <published>2017-09-05T13:58:26.000Z</published>
+    <updated>2017-10-15T10:50:35.058Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这里选择&lt;a href=&quot;https://mirrors.ustc.edu.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;USTC&lt;/a&gt;的open source software
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派3无显示器连接和配置</title>
+    <link href="https://blog.whois42.me/2017/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE3%E6%97%A0%E6%98%BE%E7%A4%BA%E5%99%A8%E8%BF%9E%E6%8E%A5%E9%85%8D%E7%BD%AE/"/>
+    <id>https://blog.whois42.me/2017/09/02/树莓派3无显示器连接配置/</id>
+    <published>2017-09-02T15:15:45.000Z</published>
+    <updated>2017-10-13T16:05:17.144Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;找技术类文章还是Google好用，百度翻了大半天没弄明白&lt;/p&gt;
+&lt;p&gt;如何在没有显示器和路由的情况下安装和连接树莓派系统&lt;/p&gt;
+&lt;h2 id=&quot;准备物品&quot;&gt;&lt;a href=&quot;#准备物品&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+      <category term="RaspberryPi" scheme="https://blog.whois42.me/tags/RaspberryPi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bathtub Mermaid</title>
+    <link href="https://blog.whois42.me/2017/08/21/BathtubMermaid/"/>
+    <id>https://blog.whois42.me/2017/08/21/BathtubMermaid/</id>
+    <published>2017-08-21T02:59:54.000Z</published>
+    <updated>2017-12-16T13:07:55.027Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div style=&quot;width:100%;position:relative;padding-bottom:56.25%;height:0;&quot; data-ratio=&quot;16:9&quot;&gt;&lt;br&gt;&lt;video style=&quot;position:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="video" scheme="https://blog.whois42.me/tags/video/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wificrack</title>
+    <link href="https://blog.whois42.me/2017/08/04/wificrack/"/>
+    <id>https://blog.whois42.me/2017/08/04/wificrack/</id>
+    <published>2017-08-04T13:39:52.000Z</published>
+    <updated>2017-08-09T13:04:01.588Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;使用Aircrack-ng和Reaver进行WIFI密码破解&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;仅供用于安全测试，请不要用来蹭网或者搞破坏&lt;/em&gt;&lt;br&gt;话说蹭网还不如WIFiXX钥匙来得方便，只不过看不到密码罢了。。。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+      <category term="hack" scheme="https://blog.whois42.me/tags/hack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7快速搭建LAMP</title>
+    <link href="https://blog.whois42.me/2017/06/15/lamp/"/>
+    <id>https://blog.whois42.me/2017/06/15/lamp/</id>
+    <published>2017-06-15T14:05:06.000Z</published>
+    <updated>2017-09-05T15:17:40.434Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;LAMP是指一组通常一起使用来运行动态网站或者服务器的自由软件名称首字母缩写：&lt;br&gt;Linux，操作系统&lt;br&gt;Apache，网页服务器&lt;br&gt;MariaDB或MySQL，数据库管理系统（或者数据库服务器）&lt;br&gt;PHP、Perl或Python，
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ArchLinux安装笔记</title>
+    <link href="https://blog.whois42.me/2017/05/16/ArchLinux%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/"/>
+    <id>https://blog.whois42.me/2017/05/16/ArchLinux安装笔记/</id>
+    <published>2017-05-16T14:34:28.000Z</published>
+    <updated>2017-10-13T16:31:43.004Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;作为一个轻量级的linux发行版，Arch linux简洁快速，但对新手不太友好，没有图形化安装界面。&lt;br&gt;这里使用vbox安装UEFI方式启动。&lt;/p&gt;
+&lt;h2 id=&quot;安装前准备&quot;&gt;&lt;a href=&quot;#安装前准备&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://blog.whois42.me/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>（已解决）github desktop无法安装问题</title>
+    <link href="https://blog.whois42.me/2017/04/18/githubdesktop/"/>
+    <id>https://blog.whois42.me/2017/04/18/githubdesktop/</id>
+    <published>2017-04-18T05:00:37.000Z</published>
+    <updated>2017-09-06T08:49:06.406Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/4041.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;新版本Github Desktop已发布，&lt;a href=&quot;https://desktop.github.com/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="github" scheme="https://blog.whois42.me/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown语言</title>
+    <link href="https://blog.whois42.me/2016/12/12/markdown/"/>
+    <id>https://blog.whois42.me/2016/12/12/markdown/</id>
+    <published>2016-12-11T17:57:29.000Z</published>
+    <updated>2017-12-16T13:07:55.028Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Markdown 是一种轻量级的「标记语言」，它的优点很多，目前也被越来越多的写作爱好者，撰稿者广泛使用。&lt;br&gt;看到这里请不要被「标记」、「语言」所迷惑，Markdown 的语法十分简单。常用的标记符号也不超过十个，这种相对于更为复杂的 HTML
+        
+      
+    
+    </summary>
+    
+    
+      <category term="markdown" scheme="https://blog.whois42.me/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客概览</title>
+    <link href="https://blog.whois42.me/2016/12/09/%E5%8D%9A%E5%AE%A2%E6%A6%82%E8%A7%88/"/>
+    <id>https://blog.whois42.me/2016/12/09/博客概览/</id>
+    <published>2016-12-09T03:46:28.000Z</published>
+    <updated>2017-12-16T13:07:55.028Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/2.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/3.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;right&quot;&gt;&lt;br&gt;Jancgk.&lt;br&gt;Theme by
+        
+      
+    
+    </summary>
+    
+    
+      <category term="test" scheme="https://blog.whois42.me/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+Github搭建静态博客</title>
+    <link href="https://blog.whois42.me/2016/12/09/hexo/"/>
+    <id>https://blog.whois42.me/2016/12/09/hexo/</id>
+    <published>2016-12-09T03:46:28.000Z</published>
+    <updated>2017-05-10T14:10:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;如你所见，这个博客就是用Hexo搭建的，Github pages托管&lt;/p&gt;
+&lt;h2 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="https://blog.whois42.me/tags/Hexo/"/>
+    
+      <category term="Git" scheme="https://blog.whois42.me/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>此博客调教中。。。</title>
+    <link href="https://blog.whois42.me/2016/12/07/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95%E4%B8%AD/"/>
+    <id>https://blog.whois42.me/2016/12/07/博客测试中/</id>
+    <published>2016-12-07T15:45:33.000Z</published>
+    <updated>2017-10-22T15:24:56.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;/images/1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;以下为测试内容：&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;云音乐外链&quot;&gt;&lt;a href=&quot;#云音乐外链&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Test" scheme="https://blog.whois42.me/tags/Test/"/>
+    
+      <category term="测试" scheme="https://blog.whois42.me/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.whois42.me/2016/11/16/hello-world/"/>
+    <id>https://blog.whois42.me/2016/11/16/hello-world/</id>
+    <published>2016-11-15T16:00:00.000Z</published>
+    <updated>2017-06-01T14:49:51.774Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
