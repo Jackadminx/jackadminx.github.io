@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /archives/
+
+Disallow: /images/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /gallery/
+Disallow: /img/
+Disallow: /videos/
