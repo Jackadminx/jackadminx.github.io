@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /archives/
+Allow: /2016/
+Allow: /2017/
+Allow: /page/
 
 Disallow: /images/
 Disallow: /js/
