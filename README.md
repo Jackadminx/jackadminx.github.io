@@ -1,6 +1,6 @@
 # jackadminx.github.io
-这里是我博客镜像站
+以前基于Hexo和Github Page的博客，由于配置文件丢失已终止更新，转向使用typecho
 
-[博客主站](https://blog.whois42.me)
 
-[Github Page镜像](https://jackadminx.github.io)
+[~~博客主站（旧域名）~~](https://blog.whois42.me)<br>
+[Github Page](https://jackadminx.github.io)
